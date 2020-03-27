@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Twitter Profile Crawler</title>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-brand nav-item"><i class="fab fa-twitter"></i> Twitter Profile Crawler</div>
+    </nav>
+    <main class="container">
+        <div class="center search-form-container">
+            <form>
+                <input  type="search" placeholder="Twitter link" id="twitterUrlInput"/>
+                <input type="text" placeholder="CrawlProxy API Key" id="tokenInput" />
+                <input type="submit" value="Scrape profile" id="scrapeBtn" />
+            </form>
+        </div>
+
+        <div class="center"> 
+            <i class="fas fa-circle-notch fa-spin spinner" id="spinner"></i>
+        </div>
+        <div class="card" id="alert" style="display: none;">
+            <div class="card-body">
+                Message Here
+            </div>
+        </div>
+        <div class="card" id="twitter-profile" style="display: none;">
+            <div class="card-body">
+                <img id="profile-img" class="profile-img" src="https://pbs.twimg.com/profile_images/1211624990724042757/b6hrakyh_400x400.jpg" alt="profile-pic">
+                <div class="profile-info-container">
+                    
+                    <p id="profile-name">
+                       
+                    </p>
+                    
+                    <p id="profile-handle">
+                       
+                    </p>
+                    
+                    <p id="profile-bio">
+                       
+                    </p>
+                    
+                    <div class="follower-stats">
+                        <div id="profile-following">
+                            
+                        </div>
+                        <div id="profile-followers">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- tweets -->
+        <div class="tweets-container" id="tweets">
+        </div>
+    </main>
+    <script src="js/app.js"></script>    
+</body>
+
+</html>

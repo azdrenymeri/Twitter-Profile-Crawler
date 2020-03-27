@@ -1,0 +1,126 @@
+body {
+   margin: 0;
+   font-family: 'Baloo 2', cursive;
+}
+
+nav {
+    height: 2rem;
+    padding: 0.8rem;
+    background-color: rgb(3, 169, 244);
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+}
+
+input {
+    border: solid 1px #cecece;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 15px;
+    outline: none;
+    margin: 10px;
+}
+
+input[type=submit] {
+    color: gray;
+    font-weight: bold;
+}
+
+input[type=submit]:hover {
+    background-color: #cecece69;
+}
+
+input[type=submit]:active {
+    background-color: darkgray;
+}
+
+.nav-item {
+    display: inline-block
+}
+
+.nav-brand {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.container {
+    margin: 0 10rem;
+}
+
+.center {
+    text-align: center;
+}
+
+.search-form-container {
+    padding: 2rem;
+}
+
+.card {
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+    padding: 1rem;
+}
+.profile-img {
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    border: solid 2px gray;
+    border-radius: 50%;
+}
+.profile-img:hover {
+    opacity: 0.7;
+}
+
+.profile-info-container {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 2rem;
+}
+
+/* name of the user */
+.profile-info-container p:nth-child(1) {
+    font-size: 1.2rem;
+    margin: 8px 0;
+}
+
+/* handle of the user */
+.profile-info-container p:nth-child(2) {
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.follower-stats > * {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+/*  tweets */
+.tweets-container {
+    margin-top: 1rem;
+}
+
+.user-info {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 1rem;
+    max-width: 89%;
+}
+
+.user-info > * {
+    display: inline-block;
+}
+.tweet-stats > * {
+    display: inline-block;
+    margin-right: 1rem;
+    vertical-align: sub;
+}
+
+.spinner {
+    display: none;
+    font-size: 5rem; 
+    color: gray;
+    margin: auto;
+}
+
+#alert {
+    color: red;
+}
+
