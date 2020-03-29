@@ -9,7 +9,9 @@ nav {
     background-color: rgb(3, 169, 244);
     box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
 }
-
+a {
+    color: #1DA1F2;
+}
 input {
     border: solid 1px #cecece;
     border-radius: 4px;
@@ -101,7 +103,7 @@ input[type=submit]:active {
     display: inline-block;
     vertical-align: top;
     margin-left: 1rem;
-    max-width: 89%;
+    max-width: 85%;
 }
 
 .user-info > * {
@@ -124,3 +126,22 @@ input[type=submit]:active {
     color: red;
 }
 
+/* Twitter classes */
+.Emoji {
+    height: 1.25em;
+    width: 1.25em;
+    padding: 0 .05em 0 .1em;
+    vertical-align: -0.2em;
+}
+
+.twitter-hashtag {
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.tweet-card {
+    margin-bottom: 5px;
+}
+.tweet-card:hover {
+    background-color: #e6ecf0;
+}

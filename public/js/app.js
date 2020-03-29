@@ -7,20 +7,18 @@ document.getElementById('scrapeBtn').addEventListener('click',async (e) =>{
     showSpinner();
 
     const twitterUrl = document.getElementById('twitterUrlInput');
-    const token = document.getElementById('tokenInput');
 
     try {
-        await fetchData(twitterUrl.value,token.value) 
+        await fetchData(twitterUrl.value) 
     }catch(err){
       
     }
     
     twitterUrl.value = '';
-    token.value = '';
 });
 
 
-const fetchData = async (twitterUrl, token) => {
+const fetchData = async (twitterUrl) => {
 
    const response =  await fetch('http://localhost:3000/api/crawl', {
         method: 'POST',
@@ -28,7 +26,7 @@ const fetchData = async (twitterUrl, token) => {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({twitterUrl, token})
+        body: JSON.stringify({twitterUrl})
     }).then(response => {
         return response.json();
     }).then(data => {
@@ -61,7 +59,7 @@ const renderData = (payload) => {
     for(let i = 0; i < payload.tweets.length; i++){
         const tweet = payload.tweets[i];
         const div = document.createElement('div');
-        div.classList.add('card');
+        div.classList.add('card','tweet-card');
         div.innerHTML = `
         <div class="card-body">
         <img class="profile-img" style="height: 47px; width: 47px;" src="${tweet.tweetPicture}" alt="user pic">

@@ -13,7 +13,7 @@ router.post('/api/crawl', async(req, res) => {
     const {error } = validateReqParams(req.body);
     if(error) return res.status(400).json({message: error.details[0].message});
 
-    const payload = await crawler(req.body.twitterUrl, req.body.token);
+    const payload = await crawler(req.body.twitterUrl);
     if(!payload) return res.status(500).json({message:'Something failed'});
     
     res.json(payload);
@@ -23,9 +23,7 @@ function validateReqParams(reqBody){
     const schema = Joi.object({
         twitterUrl: Joi.string()
         .required()
-        .pattern(new RegExp('^https://twitter.com/')),
-        token: Joi.string()
-        .required()
+        .pattern(new RegExp('^https://twitter.com/'))
     });
 
     return schema.validate(reqBody);
