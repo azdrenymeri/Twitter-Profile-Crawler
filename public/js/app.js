@@ -20,7 +20,7 @@ document.getElementById('scrapeBtn').addEventListener('click',async (e) =>{
 
 const fetchData = async (twitterUrl) => {
 
-   const response =  await fetch('http://localhost:3000/api/crawl', {
+   const response =  await fetch('twitter-profile-crawler.herokuapp.com/api/crawl', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
