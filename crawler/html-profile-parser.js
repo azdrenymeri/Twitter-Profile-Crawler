@@ -11,11 +11,14 @@ module.exports = function(response){
     const followers = htmlDoc('li.ProfileNav-item.ProfileNav-item--followers>a>span.ProfileNav-value').text().trim();
     const following = htmlDoc('li.ProfileNav-item.ProfileNav-item--following>a>span.ProfileNav-value').text().trim();
 
-   const payload = {htmlDoc,imageUrl,name,handle,bio,followers,following, tweets:[]};
+    const payload = {htmlDoc,imageUrl,name,handle,bio,followers,following, tweets:[]};
+    let firstTime = true;
 
     // extracting tweets
     htmlDoc('div#timeline>div>div.stream>ol>li').each((i,element) => {
         const tweetDoc = cheerio.load(element);
+        let tweetLink = 'https://twitter.com';
+            tweetLink += tweetDoc('div.tweet').attr('data-permalink-path');
         const tweetName = tweetDoc('strong.fullname.show-popup-with-id.u-textTruncate').text();
         const tweetPicture = tweetDoc('img.avatar.js-action-profile-avatar').attr('src').trim();
         const tweetHandle = tweetDoc('span.username.u-dir.u-textTruncate').text();
@@ -27,6 +30,7 @@ module.exports = function(response){
     
         // pushing a tweet
         payload.tweets.push({
+            tweetLink,
             tweetName,
             tweetPicture,
             tweetHandle,

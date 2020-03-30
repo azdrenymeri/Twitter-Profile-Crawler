@@ -1,26 +1,20 @@
-
-
 document.getElementById('scrapeBtn').addEventListener('click',async (e) =>{
-    e.preventDefault();
-    
+    e.preventDefault();    
     hideCards();
     showSpinner();
-
     const twitterUrl = document.getElementById('twitterUrlInput');
-
     try {
-        await fetchData(twitterUrl.value) 
+        await fetchProfile(twitterUrl.value) 
     }catch(err){
-      
+     console.log(err); 
     }
-    
     twitterUrl.value = '';
 });
 
-
-const fetchData = async (twitterUrl) => {
-
-   const response =  await fetch('https://twitter-profile-crawler.herokuapp.com/api/crawl', {
+const fetchProfile = async (twitterUrl) => {
+    // https://twitter-profile-crawler.herokuapp.com/api/crawl
+    // http://localhost:3000/api/crawl
+   const response =  await fetch('http://localhost:3000/api/crawl', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -60,6 +54,7 @@ const renderData = (payload) => {
         const tweet = payload.tweets[i];
         const div = document.createElement('div');
         div.classList.add('card','tweet-card');
+        div.setAttribute('tweet-link',tweet.tweetLink);
         div.innerHTML = `
         <div class="card-body">
         <img class="profile-img" style="height: 47px; width: 47px;" src="${tweet.tweetPicture}" alt="user pic">
@@ -111,8 +106,19 @@ const showError = (message) => {
    const messageBox = document.getElementById('alert');
    messageBox.innerText = message;
    messageBox.style.display  = 'block';
-
    setTimeout(() => {
     messageBox.style.display = 'none';
    }, 3000);
 }
+
+// profile picture modal handling
+const showModal = (e) => {
+    document.getElementById('imgSourceModal').setAttribute('src',e.target.getAttribute('src'));
+    document.getElementById('pictureModal').style.display = 'block';
+};
+const hideModal = () => {
+    document.getElementById('pictureModal').style.display = 'none';    
+}
+document.getElementById('close').addEventListener('click', hideModal);
+document.getElementById('profile-img').addEventListener('click', showModal); 
+

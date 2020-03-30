@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Joi = require('@hapi/joi');
-const crawler = require('../crawler/crawler');
+const {crawlProfile, crawlTweet} = require('../crawler/crawler');
 
 
 router.get('/',(req, res) => {
@@ -10,10 +10,21 @@ router.get('/',(req, res) => {
 
 router.post('/api/crawl', async(req, res) => {
     
-    const {error } = validateReqParams(req.body);
+    const { error } = validateReqParams(req.body);
     if(error) return res.status(400).json({message: error.details[0].message});
 
-    const payload = await crawler(req.body.twitterUrl);
+    const payload = await crawlProfile(req.body.twitterUrl);
+    if(!payload) return res.status(500).json({message:'Something failed'});
+    
+    res.json(payload);
+});
+
+router.post('/api/crawlTweet', async(req, res) => {
+
+    const { error } = validateReqParams(req.body);
+    if(error) return res.status(400).json({message: error.details[0].message});
+
+    const payload = await crawlTweet(req.body.twitterUrl);
     if(!payload) return res.status(500).json({message:'Something failed'});
     
     res.json(payload);
