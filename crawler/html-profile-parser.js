@@ -7,7 +7,7 @@ module.exports = function(response){
     const imageUrl = htmlDoc('img.ProfileAvatar-image').attr('src').trim();
     const name = htmlDoc('a.ProfileHeaderCard-nameLink.u-textInheritColor.js-nav').text().trim();
     const handle = htmlDoc('a.ProfileHeaderCard-screennameLink.u-linkComplex.js-nav > span').text();
-    const bio = htmlDoc('p.ProfileHeaderCard-bio.u-dir').text().trim();
+    const bio = htmlDoc('p.ProfileHeaderCard-bio.u-dir').text();
     const followers = htmlDoc('li.ProfileNav-item.ProfileNav-item--followers>a>span.ProfileNav-value').text().trim();
     const following = htmlDoc('li.ProfileNav-item.ProfileNav-item--following>a>span.ProfileNav-value').text().trim();
 

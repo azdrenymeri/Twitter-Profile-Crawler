@@ -34,6 +34,9 @@ input[type=submit]:active {
     background-color: darkgray;
 }
 
+hr {
+    border: solid 1px #E1E8ED;
+}
 .nav-item {
     display: inline-block
 }
@@ -75,6 +78,8 @@ input[type=submit]:active {
     display: inline-block;
     vertical-align: top;
     margin-left: 2rem;
+    max-width: 60%;
+    overflow-wrap: break-word;
 }
 
 /* name of the user */
@@ -104,6 +109,7 @@ input[type=submit]:active {
     vertical-align: top;
     margin-left: 1rem;
     max-width: 85%;
+    user-select: none;
 }
 
 .user-info > * {
@@ -114,7 +120,9 @@ input[type=submit]:active {
     margin-right: 1rem;
     vertical-align: sub;
 }
-
+.user-name {
+    font-weight: bold;
+}
 .spinner {
     display: none;
     font-size: 5rem; 
@@ -207,7 +215,38 @@ input[type=submit]:active {
 }
 .modal-card {
     background-color: white;
-    margin: 1rem;
+    margin: 7rem 15rem;
     box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
     padding: 1rem;
+    border-radius: 4px;
 }
+.tweet-header {
+    text-align: left;
+}
+.header-item {
+    display: inline-block;
+    margin: 0 .2rem;
+    font-size: 1.2rem;
+}
+.v-center-align {
+    vertical-align: top;
+    margin-top: 1rem;
+}
+.tweet-content {
+    padding: 1rem 0;
+    text-align: justify;
+}
+
+.fas {
+    color: #1DA1F2;
+}
+#imgs-modal > * {
+    margin-left: -1rem;
+}
+
+.inline-block {
+    display: inline-block;
+}
+/* #overlap-img {
+    margin-left: -1.2rem;
+} */
